@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mystical Rings</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{url_for('static', filename='css/shop-homepage.css') }}" rel="stylesheet">
+   
+   <link href="{{url_for('static', filename='css/thumbnail-gallery.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="{{url_for('static', filename='fonts/Victorian Parlor Vintage
+    Alternate_free.otf') }}" rel="stylesheet">
+
+
+<style>
+
+                                 
+
+.thumbnail img{
+   max-width:250px;
+   max-height:500px;
+ }
+
+ .thumbnail {
+   padding:20px;
+   margin-bottom:50px;
+ }
+
+ table {
+   border-collapse: separate;
+   border-spacing: 0 1em;
+   margin-left:90px;
+   padding:50px;
+   background:#D5D0B1;
+   width:600;
+   border:solid black 4px;
+ }
+
+ div.list-group {
+   background:#9da192;
+ }
+
+ #post-message img {
+  max-width:500px;
+  margin-left:20%;
+ }
+
+ #post-message p {
+  margin-left:5%;
+ }
+
+
+#victorian {
+  font-family: 'Victorian Parlor Vintage Alternate';
+}
+
+.navbar-brand {
+  font-size:40px;
+}
+
+.list-group {
+   font-size:30px;
+}
+
+.lead {
+  font-size:35px;
+  color:#D5D0B1;
+}
+
+h3, #post-message {
+  font-size:35px;
+  color:#d5d0b1;
+  font-family:'Victorian Parlor Vintage Alternate';
+ }
+
+.list-group-item {
+  background-color:#d5d0b1;
+}  
+
+div.col-sm-4 col-lg-4 col-md-4 div.thumbnail {
+  background-color:#d5d0b1;
+}
+
+</style>
+
+</head>
+
+<body background="{{url_for ('static',
+filename='layouts/5113281-black-victorian-wallpaper.jpg')}}" style="left: 0;
+top:0; width:100%; height:100%;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="victorian" href="{{url_for('pl')}}">Mystical Rings</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" style="font-size:30px;
+                width:900px;">
+                    <li>
+                        <a href="{{url_for('aboutUs')}}" id="victorian" >About us</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('upload')}}"id="victorian">Share your photos with us</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('contactUs')}}" id="victorian"> Contact Us</a>
+                    </li>
+                    <li id="victorian" style="margin-left:20%;">
+                        {% if not session.logged_in %}
+                        <a href=" {{ url_for('login')}}">Log in</a>
+                        {% else %}
+                        <a href={{url_for('logout')}}>Log out</a>
+                        {% endif %}
+                    </li>
+                 </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+            <br/>
+                <p class="lead" id="victorian" >Browse by Brand</p>
+                <div class="list-group">
+                    <a style="background-color:#d5d0b1;"
+href="{{url_for('pl')}}" id="victorian" class="list-group-item">Pamela Love</a>
+                    <a style="background-color:#d5d0b1;"
+href="{{url_for('mm')}}" id="victorian" class="list-group-item">Mania Mania</a>
+                    <a style="background-color:#d5d0b1;"
+href="{{url_for('oo')}}" id="victorian" class="list-group-item">Omnia Oddities</a>
+                    <a style="background-color:#d5d0b1;"
+href="{{url_for('ej')}}" id="victorian" class="list-group-item">Eilisain Jewelry</a>
+                    <a style="background-color:#d5d0b1;"
+href="{{url_for('bmj')}}" id="victorian" class="list-group-item">Blood Milk Jewels</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row carousel-holder">
+
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image"
+                                    src="{{url_for('static',filename='layouts/pamela-love-updated-banner.png')}}" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image"
+                                    src="{{url_for('static',filename='layouts/mania-mania-banner.png')}}" alt="">
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image"
+                                    src="{{url_for('static',filename='layouts/omnia-oddities-banner2.png')}}" alt="">
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                {% block content %} {% endblock %}
+
+                </div>   
+              </div>
+
+                   <div class="container">
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename = 'js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

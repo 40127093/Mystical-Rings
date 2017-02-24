@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    
+    {% for message in messages %}
+      <p style="color:#D5D0B1; font-size:35px;" id="victorian"> {{message |
+      safe}}</p>
+    {% endfor %}
+   {% endif %}
+ {% endwith %}
+</div>
+
+{% endblock %}
+

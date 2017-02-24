@@ -1,0 +1,12 @@
+{%  extends "layout.html" %}
+{% block content %}
+
+<div id="post-message">
+
+<p>Thank you {{name}} for your feedback! We'll get back to you as
+soon as possible!</p>
+</br>
+<img src="{{url_for('static',filename='layouts/post-response.png')}}" alt="">
+
+</div>
+{% endblock %}

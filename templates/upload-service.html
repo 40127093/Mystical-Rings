@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+    
+    <!-- Page Content -->
+           <div class="col-lg-12">
+                <h3 class="page-header">Fans Photo Gallery</h3>
+            </div>
+            
+   {% if not session.logged_in %}
+
+    <p style="color:#B3B3B3;">If you wish to upload your own photos in our
+    collection, please click the 'Log In' button on the right top corner of the
+    page.Only super users can access the photo upload feature. </p>
+
+   {% else %}
+
+    <p style="color:#B3B3B3;">If you'd like to add one of your own photos in our public
+    collection below, please click the "Choose File" button, choose the photo
+    you wish to upload and hit "Submit"</p>
+
+<div>
+        <form action="" method="post" name="form" enctype="multipart/form-data"
+        style="border: solid 1px #b3b3b3; height:40px; background-color:black;">
+          <input type="file" name="datafile" style="color:#B3B3B3;
+          display:inline; width:200px;margin-left:30%;padding-top:10px;;"/>
+          <input type="submit" name="submit" id="submit"
+          style="width:90px; margin-left:10%;"/>
+        </form>  
+</div> </br> 
+
+   {% endif %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li style="color:#B3B3B3;"> {{message | safe}}</li>
+    {% endfor %}
+    </ul>
+   {% endif %}
+ {% endwith %}
+
+</br></br>
+<div>
+{% for upload in uploads %}
+           
+           <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="/static/uploads/{{upload}}" alt="">
+                </a>
+            </div>
+
+  {% endfor %}          
+     </div>   
+        </div>
+ </div>
+    </div>
+ </div>
+
+        <hr>
+
+  {% endblock %}

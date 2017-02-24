@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div style="margin-left:20%; border:solid black 4px; padding-left:30px; padding-top:120px; padding-bottom:120px; width:500px; background-color:#D5D0B1;">
+<form name="login_form" action="" method="post" style=background-color:#D5D0B1;>  
+
+    <input type="email" placeholder="Email" name="email">
+    <input type="password" placeholder="Password" name="password">
+    <button type="submit" class="btn" name="button" value="login">
+      Sign In
+    </button>
+    
+    {% if error %}
+      <p class="error" style="color:white;"> {{ error }}
+    {% endif %}   
+</form>    
+</div>
+
+{% endblock %}
